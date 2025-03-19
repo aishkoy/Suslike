@@ -1,0 +1,32 @@
+server:
+  port: 8998
+spring:
+  datasource:
+    url: jdbc:h2:./db/Suslike;AUTO_SERVER=true
+    driver-class-name: org.h2.Driver
+    username: root
+    password: qwerty
+  liquibase:
+    change-log: classpath:db/changelog/master.yaml
+  h2:
+    console:
+      enabled: false
+  security:
+    user:
+      name: email
+      password: password
+  freemarker:
+    expose-session-attributes: true
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+logging:
+  level:
+    root: info
+    org:
+      springframework:
+        security: debug
+
+  file:
+    name: logs/spring.log
